@@ -40,11 +40,11 @@ const alphaSort = (str)=>{
     parent: '',
     siblings: []
   }
-  // IDENTIFIES PARENT OF EACH GENERATION
+  // IDENTIFIES PARENT OF EACH GENERATION (FUNCTION FOUND BELOW)
   let gen1Parent = parentIdentifier(arr, gen1, 1);
   let gen2Parent = parentIdentifier(arr, gen2, 2);
 
-  // SEPARATES GENERATIONS 0, 1, AND 2 AND REMOVES ENUMERATION (FOUND BELOW)
+  // SEPARATES GENERATIONS 0, 1, AND 2 AND REMOVES ENUMERATION (FUNCTION FOUND BELOW)
   let genSep = genSeparator(arr, gen1, gen2);
   let newArr = genSep[0];
   gen1 = genSep[1];
@@ -55,12 +55,12 @@ const alphaSort = (str)=>{
   gen1.siblings.sort();
   gen2.siblings.sort();
 
-  // ADDS GENERATION TO newArr AND ADDS ENUMERATION
+  // ADDS GENERATION ARRAYS TO newArr AND ADDS ENUMERATION (FUNCTION FOUND BELOW)
   const gen1ParentNum = newArr.indexOf(gen1Parent)
-  newArr = addGen(newArr, gen1ParentNum, gen1, 1);
+  newArr = addGeneration(newArr, gen1ParentNum, gen1, 1);
 
   const gen2ParentNum = newArr.indexOf(gen2Parent)
-  newArr = addGen(newArr, gen2ParentNum, gen2, 2);
+  newArr = addGeneration(newArr, gen2ParentNum, gen2, 2);
 
   return newArr;
 }
@@ -93,7 +93,7 @@ const genSeparator = (arr, gen1, gen2)=>{
   return [newArr, gen1, gen2];
 }
 
-const addGen= (arr, genparent, gen, num)=>{
+const addGeneration= (arr, genparent, gen, num)=>{
   for (var i=gen.siblings.length-1; i>=0; i--){
     arr.splice(genparent+1, 0, num, gen.siblings[i]);
   }
@@ -121,3 +121,14 @@ function outputStr(str){
 }
 
 console.log(outputStr('(id,created,employee(id,firstname,employeeType(id), lastname),location)'));
+
+/*
+WHAT ABOUT FOR A STRING INCLUDING MORE SUBLISTS, DEEPER SUBLISTS, ETC?
+
+IMPROVING THIS SOLUTION:
+1. FAMILY TREE COUNTER
+2. VARIABLE ARGUMENT parentIdentifier
+3. VARIABLE ARGUMENT genSeparator
+4. VARIABLE ARGUMENT siblingsSorter
+5. VARIABLE ARGUMENT addGeneration
+*/
