@@ -6,8 +6,11 @@ Problem to Solve:
 to the following output:
 
 id
+
 created
+
 employee
+
 \- id
 
 \- firstname
@@ -17,11 +20,14 @@ employee
 \-- id
 
 \- lastname
+
 location
 
 # Bonus (output in alphabetical order):
 created
+
 employee
+
 \- employeeType
 
 \-- id
@@ -31,5 +37,7 @@ employee
 \- id
 
 \- lastname
+
 id
+
 location
