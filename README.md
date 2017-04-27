@@ -9,9 +9,13 @@ id
 created
 employee
 \- id
+
 \- firstname
+
 \- employeeType
+
 \-- id
+
 \- lastname
 location
 
@@ -19,9 +23,13 @@ location
 created
 employee
 \- employeeType
+
 \-- id
+
 \- firstname
+
 \- id
+
 \- lastname
 id
 location
