@@ -5,39 +5,23 @@ Problem to Solve:
 
 to the following output:
 
-id
-
-created
-
-employee
-
-\- id
-
-\- firstname
-
-\- employeeType
-
-\-- id
-
-\- lastname
-
+id  
+created  
+employee  
+\- id  
+\- firstname  
+\- employeeType  
+\-- id  
+\- lastname  
 location
 
 # Bonus (output in alphabetical order):
-created
-
-employee
-
-\- employeeType
-
-\-- id
-
-\- firstname
-
-\- id
-
-\- lastname
-
-id
-
+created  
+employee  
+\- employeeType  
+\-- id  
+\- firstname  
+\- id  
+\- lastname  
+id  
 location
