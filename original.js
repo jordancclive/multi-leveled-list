@@ -57,4 +57,4 @@ function outputStr(str){
   return newStr;
 }
 
-console.log(outputStr('(id,created,employee(id,firstname,employeeType(id), lastname),location)'));
+// console.log(outputStr('(id,created,employee(id,firstname,employeeType(id), lastname),location)'));

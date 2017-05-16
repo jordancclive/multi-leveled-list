@@ -45,7 +45,6 @@ const alphaSort = (str)=>{
   let gen3Parent = parentIdentifier(arr, gen2, 2);
 
   // SEPARATES GENERATIONS 0, 1, AND 2 AND REMOVES ENUMERATION (FUNCTION FOUND BELOW)
-  let gen2, gen3;
   let genSep = genSeparator(arr, gen2, gen3);
   let gen1 = genSep[0];
   let gen2 = genSep[1];
@@ -56,7 +55,7 @@ const alphaSort = (str)=>{
   gen2.sort();
   gen3.sort();
 
-  // ADDS GENERATION ARRAYS TO newArr AND ADDS ENUMERATION (FUNCTION FOUND BELOW)
+  // ADDS GENERATION ARRAYS TO gen1 AND ADDS ENUMERATION (FUNCTION FOUND BELOW)
   const gen2ParentNum = gen1.indexOf(gen2Parent)
   gen1 = addGeneration(gen1, gen2ParentNum, gen2, 2);
 
