@@ -41,28 +41,29 @@ const alphaSort = (str)=>{
   let arr = genEnumArr(str);
 
   // IDENTIFIES PARENT OF EACH GENERATION (FUNCTION FOUND BELOW)
-  let gen1Parent = parentIdentifier(arr, gen1, 1);
-  let gen2Parent = parentIdentifier(arr, gen2, 2);
+  let gen2Parent = parentIdentifier(arr, gen1, 1);
+  let gen3Parent = parentIdentifier(arr, gen2, 2);
 
   // SEPARATES GENERATIONS 0, 1, AND 2 AND REMOVES ENUMERATION (FUNCTION FOUND BELOW)
-  let genSep = genSeparator(arr, gen1, gen2);
-  let newArr = genSep[0];
-  let gen1 = genSep[1];
-  let gen2 = genSep[2];
+  let gen2, gen3;
+  let genSep = genSeparator(arr, gen2, gen3);
+  let gen1 = genSep[0];
+  let gen2 = genSep[1];
+  let gen3 = genSep[2];
 
   // SORTS GENERATIONS 0, 1, AND 2
-  newArr.sort();
-  gen1.siblings.sort();
-  gen2.siblings.sort();
+  gen1.sort();
+  gen2.sort();
+  gen3.sort();
 
   // ADDS GENERATION ARRAYS TO newArr AND ADDS ENUMERATION (FUNCTION FOUND BELOW)
-  const gen1ParentNum = newArr.indexOf(gen1Parent)
-  newArr = addGeneration(newArr, gen1ParentNum, gen1, 1);
+  const gen2ParentNum = gen1.indexOf(gen2Parent)
+  gen1 = addGeneration(gen1, gen2ParentNum, gen2, 2);
 
-  const gen2ParentNum = newArr.indexOf(gen2Parent)
-  newArr = addGeneration(newArr, gen2ParentNum, gen2, 2);
+  const gen3ParentNum = gen1.indexOf(gen3Parent)
+  gen1 = addGeneration(gen1, gen3ParentNum, gen3, 3);
 
-  return newArr;
+  return gen1;
 }
 
 const parentIdentifier = (arr, gen, num)=>{
@@ -75,20 +76,20 @@ const parentIdentifier = (arr, gen, num)=>{
   return gen.parent;
 }
 
-const genSeparator = (arr, gen1, gen2)=>{
-  let newArr = [];
+const genSeparator = (arr, gen2, gen3)=>{
+  let gen1 = [];
   for (var i=0; i<arr.length; i++){
     if (typeof arr[i]==='number'){
       continue;
     }
     if (arr[i-1]===0){
-      newArr.push(arr[i]);
+      gen1.push(arr[i]);
     }
     if (arr[i-1]===1){
-      gen1.siblings.push(arr[i])
+      gen2.siblings.push(arr[i])
     }
     if (arr[i-1]===2){
-      gen2.siblings.push(arr[i])
+      gen3.siblings.push(arr[i])
     }
   }
   return [newArr, gen1, gen2];
