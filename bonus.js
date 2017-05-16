@@ -39,14 +39,7 @@ const genEnumArr = (str)=>{
 
 const alphaSort = (str)=>{
   let arr = genEnumArr(str);
-  let gen1 = {
-    parent: '',
-    siblings: []
-  }
-  let gen2 = {
-    parent: '',
-    siblings: []
-  }
+
   // IDENTIFIES PARENT OF EACH GENERATION (FUNCTION FOUND BELOW)
   let gen1Parent = parentIdentifier(arr, gen1, 1);
   let gen2Parent = parentIdentifier(arr, gen2, 2);
@@ -54,8 +47,8 @@ const alphaSort = (str)=>{
   // SEPARATES GENERATIONS 0, 1, AND 2 AND REMOVES ENUMERATION (FUNCTION FOUND BELOW)
   let genSep = genSeparator(arr, gen1, gen2);
   let newArr = genSep[0];
-  gen1 = genSep[1];
-  gen2 = genSep[2];
+  let gen1 = genSep[1];
+  let gen2 = genSep[2];
 
   // SORTS GENERATIONS 0, 1, AND 2
   newArr.sort();
@@ -73,6 +66,7 @@ const alphaSort = (str)=>{
 }
 
 const parentIdentifier = (arr, gen, num)=>{
+  // once the generation number increases, the word directly previous to the increased number is designated parent of the new generation
   for (var i=0; i<arr.length; i++){
     if (arr[i-1]===num){
       return gen.parent = arr[i-2];
