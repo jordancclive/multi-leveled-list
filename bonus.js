@@ -79,6 +79,7 @@ const genSeparator = (arr)=>{
   let gen1 = [];
   let gen2 = [];
   let gen3 = [];
+  // takes different generations from a three-generation array and produces three different generation-specific arrays
   for (var i=0; i<arr.length; i++){
     if (typeof arr[i]==='number'){
       continue;
@@ -97,6 +98,7 @@ const genSeparator = (arr)=>{
 }
 
 const addGeneration= (arr, genparent, gen, num)=>{
+  // inserts younger generations where they correspond to the correct sibling in older generations
   for (var i=gen.length-1; i>=0; i--){
     arr.splice(genparent+1, 0, num, gen[i]);
   }
