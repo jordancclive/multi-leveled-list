@@ -123,12 +123,12 @@ function outputStr(str){
 console.log(outputStr('(id,created,employee(id,firstname,employeeType(id), lastname),location)'));
 
 /*
-WHAT ABOUT FOR A STRING INCLUDING MORE SUBLISTS, DEEPER SUBLISTS, ETC?
-
 IMPROVING THIS SOLUTION:
-1. FAMILY TREE COUNTER
-2. VARIABLE ARGUMENT parentIdentifier
-3. VARIABLE ARGUMENT genSeparator
-4. VARIABLE ARGUMENT siblingsSorter
-5. VARIABLE ARGUMENT addGeneration
+- Consider using a stack data structure instead of generation-enumerated arrays
+- Figure out how to create a recursive function for the bonus solution
+- Start out projects like this with listed assumptions in beginning comments (so that the evaluator can make sure that if I have misunderstandings, I'm going about them intelligently)
+- Add more comments throughout each function
+- Use foreach and map instead of several of the for loops?
+
+WHAT ABOUT FOR A STRING INCLUDING MORE SUBLISTS, DEEPER SUBLISTS, ETC?
 */
