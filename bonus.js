@@ -125,12 +125,34 @@ function outputStr(str){
 console.log(outputStr('(id,created,employee(id,firstname,employeeType(id), lastname),location)'));
 
 /*
-IMPROVING THIS SOLUTION:
-- Consider using a stack data structure instead of generation-enumerated arrays
-- Figure out how to create a recursive function for the bonus solution
-- Start out projects like this with listed assumptions in beginning comments (so that the evaluator can make sure that if I have misunderstandings, I'm going about them intelligently)
-- Add more comments throughout each function
-- Use foreach and map instead of several of the for loops?
+SIMPLIFYING THIS SOLUTION (in a way that can take in strings with more and deeper sublists):
+- Use clearly-defined, simple functions that perform one task - obvious input/ output
+- Consider using a json object data structure instead of generation-enumerated arrays and recursively call itself
 
-WHAT ABOUT FOR A STRING INCLUDING MORE SUBLISTS, DEEPER SUBLISTS, ETC?
+ONE POSSIBLE APPROACH:
+
+High Level
+- Parse String to a recursive data structure object (such as JSON)
+- Alphabetize the object
+- Call Print on the object
+
+Parse - takes a string and converts to JSON object (or some recursive data structure)
+example input: "(a(b),c(d(e))"
+example output: [{"a":[{"b":[]}]},{"c":[{"d":[{"e":[]}]});
+
+Sort - takes a JSON Object and recursively sorts all the keys
+example input: [{"reptile":[{"snake":[{"viper":[]},{"python":[]}],{"lizard":[]}]},{"mammal":[{"zebra":[]},{"monkey":[]}]}]
+example output: [{"mammal":[{"monkey":[]},{"zebra":[]}]},"reptile":[{"lizard":[]},{"snake":[{"python":[]},{"viper":[]}]}]}]
+
+Print - takes a JSON Object and recursively prints to string by depth
+example input: [{"mammal":[{"monkey":[]},{"zebra":[]}]},"reptile":[{"snake":[{"python":[]},{"viper":[]}]}]}]
+example output:
+"mammal
+- monkey
+- zebra
+reptile
+- snake
+ -- python
+ -- viper
+- lizard"
 */
